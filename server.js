@@ -31,3 +31,6 @@ let server = net.createServer(socket => {
         console.log(e);
     });
 });
+server.listen(8787, ()=> {
+    console.log("server start ")
+})
