@@ -3,8 +3,10 @@ const net = require('net');
 
 let sockets = [];
 
-function broadcast(message) {
-    sockets.forEach(socket => socket.write(message));
+function broadcast(data, message) {
+    sockets.forEach(socket => function(){
+        socket.write(message)
+    });
 }
 
 let server = net.createServer(socket => {

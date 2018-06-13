@@ -16,5 +16,9 @@ process.stdin.once('data', data => {
             let packet = `${name}|${message}`;
             socket.write(packet);
         });
+        process.stdin.on('end', () => {
+            process.stdout.write('end');
+           // socket.write('end');
+        });
     });
 });
