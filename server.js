@@ -4,11 +4,8 @@ const net = require('net');
 let sockets = [];
 
 function broadcast(data, message) {
-    sockets.forEach(socket => function(){
-        socket.write(message)
-    });
+    sockets.forEach(socket => socket.write(message));
 }
-
 let server = net.createServer(socket => {
     sockets.push(socket);
     let ip = socket.address().address;
