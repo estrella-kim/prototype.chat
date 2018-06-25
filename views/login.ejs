@@ -1,0 +1,21 @@
+<h2>welcome  to chats!</h2>
+<form>
+    <label>닉네임을 입력해주세요.
+    <input type='text' id="nickname"/>
+        <input type="submit" value="입장"/>
+</label>
+</form>
+<script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+<script>
+    $(document).ready(function(){
+        $('form').submit(function(e){
+            if($.trim($('#nichkname').val()) === '') {
+                alert('닉네임을 입력해 주세요');
+                return false;
+            }
+        }
+    }
+</script>
