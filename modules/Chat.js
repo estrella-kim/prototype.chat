@@ -2,11 +2,11 @@ var Chat = module.exports = {
     users : [],
     rooms : [],
     hasUser : function(nickname){
-        var users = this.uesrs.filter(function(element){
+        var users = this.users.filter(function(element){
             return (element === nickname);
         })
 
-        if (users.length > 0 ) {
+        if(users.length > 0 ) {
             return true;
         }else{
             return false;

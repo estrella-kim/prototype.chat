@@ -8,6 +8,7 @@ var session = require('express-session');
 
 var index = require('./routes/index');
 var roomLists = require('./routes/roomLists');
+var makeRoom = require('./routes/makeRoom');
 var chat = require('./routes/chat.js');
 
 var app = express();
@@ -28,6 +29,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', index);
 app.use('/enter', roomLists);
 app.use('/chat', chat);
+app.use('/makeRoom', makeRoom);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

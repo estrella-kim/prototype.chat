@@ -1,11 +1,13 @@
 var express = require('express');
 var router = express.Router();
-var Chat = require('/prototype.chat/modules/Chat.js');
+var Chat = require('../modules/Chat');
+
 
 /* POST page. */
-router.post('/enter', function(req, res, next) {
+router.post('/', function(req, res, next) {
   var isSuccess = false,
       nickname = req.body.nickname;
+
     if(nickname && nickname.trim() !== '') {
         if(!Chat.hasUser(nickname)){
             Chat.addUsers(nickname);
@@ -19,21 +21,6 @@ router.post('/enter', function(req, res, next) {
         nickname : nickname
     })
 });
-router.post('/makeRoom', function(req, res){
-    var isSuccess = false,
-        roomName = req.body.roomname;
-
-    if(roomName && roomName.trim() !== '') {
-        if(!Chat.hasRoom(roomName)){
-            Chat.addRoom(roomName);
-           isSuccess = true;
-        }
-    }
-    res.render('makeRoom',{
-        isSuccess : isSuccess,
-        roomName : roomName
-    })
-})
 
 
 
