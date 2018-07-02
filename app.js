@@ -7,9 +7,10 @@ var bodyParser = require('body-parser');
 var session = require('express-session');
 
 var index = require('./routes/index');
-var roomLists = require('./routes/roomLists');
+var enter = require('./routes/enter');
 var makeRoom = require('./routes/makeRoom');
 var chat = require('./routes/chat.js');
+var join = require('./routes/join.js');
 
 var app = express();
 
@@ -27,9 +28,10 @@ app.use(session({secret:'secret key'}));
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
-app.use('/enter', roomLists);
+app.use('/enter', enter);
 app.use('/chat', chat);
 app.use('/makeRoom', makeRoom);
+app.use('/join', join);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

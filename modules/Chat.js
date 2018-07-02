@@ -27,5 +27,10 @@ var Chat = module.exports = {
     },
     addRoom : function(roomName) {
         this.rooms.push({name : roomName, attendants : []})
+    },
+    getRoomList : function() {
+        return this.rooms.map(function(element) {
+            return element.name;
+        })
     }
 }

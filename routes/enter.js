@@ -2,6 +2,21 @@ var express = require('express');
 var router = express.Router();
 var Chat = require('../modules/Chat');
 
+/* GET page. */
+router.get('/', function(req, res, next) {
+    if(req.session.nickname) {
+        res.render('enter', {
+            isSuccess : true,
+            nickname : req.session.nickname,
+            roomList : Chat.getRoomList()
+        })
+    }  else {
+        res.render('enter', {
+            isSuccess : false,
+            nickname : ''
+        })
+    }
+})
 
 /* POST page. */
 router.post('/', function(req, res, next) {
@@ -16,9 +31,10 @@ router.post('/', function(req, res, next) {
         }
     }
 
-    res.render('roomLists', {
+    res.render('enter', {
         isSuccess : isSuccess,
-        nickname : nickname
+        nickname : nickname,
+        roomList : Chat.getRoomList()
     })
 });
 

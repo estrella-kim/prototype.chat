@@ -1,0 +1,8 @@
+<% if (!isSuccess ) {%>
+<script>
+    alert("방에 입장할 수 없습니다.");
+    location.href = '/enter';
+</script>
+<% } else {%>
+    <h3>방제 : <span><%= roomName%></span></h3>
+<% }%>

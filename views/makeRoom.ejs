@@ -1,6 +1,12 @@
+<script>
 <% if(isSuccess) {%>
-<h2><%= roomName %></h2>
-
+    alert('방이 만들어졌습니다.');
+    location.href='/join/#' + roomName;
+<%} else if( roomName === '') {%>
+    alert('방을 만들지 못했습니다.');
+    location.href= '/enter';
 <%} else {%>
-
-<% } %>
+    alert('이미 존재하는 방입니다.');
+    location.href='/enter';
+<% }%>
+</script>
