@@ -7,7 +7,6 @@ var io  = require('socket.io')(http);
 router.post('/', function(req, res, next) {
     var roomName = req.body.roomname;
     var isSuccess = true;
-  //res.render('index', { title: 'Express' });
     res.render('chat', {
         roomName: roomName,
         isSuccess : isSuccess
