@@ -9,8 +9,8 @@ var session = require('express-session');
 var index = require('./routes/index');
 var enter = require('./routes/enter');
 var makeRoom = require('./routes/makeRoom');
-var chat = require('./routes/chat.js');
-var join = require('./routes/join.js');
+var chat = require('./routes/chat');
+var join = require('./routes/join');
 
 var app = express();
 
@@ -24,14 +24,20 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(session({secret:'secret key'}));
+app.use(session({
+    secret:'secret key'
+}));
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
 app.use('/enter', enter);
 app.use('/chat', chat);
 app.use('/makeRoom', makeRoom);
+<<<<<<< Updated upstream
 app.use('/join', join);
+=======
+app.use('/chat', chat);
+>>>>>>> Stashed changes
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

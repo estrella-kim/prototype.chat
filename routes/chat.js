@@ -4,12 +4,18 @@ var http = require('http').Server(express());
 var io  = require('socket.io')(http);
 
 /* GET home page. */
-router.get('/', function(req, res, next) {
+router.post('/', function(req, res, next) {
+    var roomName = req.body.roomname;
+    var isSuccess = true;
   //res.render('index', { title: 'Express' });
-    res.render('index', { title: 'Express' });
+    res.render('chat', {
+        roomName: roomName,
+        isSuccess : isSuccess
+    });
 });
 
 
+io.set('resource', '/socket.io');
 
 io.on('connection', function(socket){
     console.log('a user connected');
@@ -20,7 +26,7 @@ io.on('connection', function(socket){
     /* socket.on('disconnect', function(){
          console.log('a user disconnected');
      })*/
-})
+});
 
 
 module.exports = router;

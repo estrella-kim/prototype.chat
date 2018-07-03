@@ -1,0 +1,13 @@
+<% if(isSuccess) {%>
+<h2>채팅방 목록</h2>
+<p><%= nickname %> 님 환영합니다.</p>
+<p>원하는 채팅방이 없으면 만드세오</p>
+<form action="/chat" method="post">
+    <label for="roomname">
+        <input type="text" id="roomname" name="roomname"/>
+        <input type="submit" value="방 만들기"/>
+    </label>
+</form>
+<%} else {%>
+
+<% } %>

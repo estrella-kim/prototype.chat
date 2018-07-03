@@ -1,12 +1,5 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
+<% if(isSuccess) {%>
+    <h1><%= roomName %></h1>
     <ul id="messages"></ul>
     <input id="m" autocomplete="off" /><button>Send</button>
   <script src="/socket.io/socket.io.js"></script>
@@ -24,6 +17,9 @@
           console.log(msg);
          document.querySelector('#messages').innerHTML += `<li>${msg}</li>`;
       });
+      <%} else {%>
+      Failed!
+      <%} %>
   </script>
   </body>
 </html>
