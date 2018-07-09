@@ -4,7 +4,7 @@ var Chat = require('../modules/Chat');
 
 router.post('/', function(req, res){
     var isSuccess = false,
-        roomName = req.body.roomname;
+        roomName = req.body.roomName;
 
     if(roomName && roomName.trim() !== '') {
         if(!Chat.hasRoom(roomName)){

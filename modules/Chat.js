@@ -17,7 +17,7 @@ var Chat = module.exports = {
     },
     hasRoom : function(roomName) {
         var rooms = this.rooms.filter(function(element){
-            return (element === roomName);
+            return (element.name === roomName);
         })
         if(rooms.length > 0) {
             return true;
